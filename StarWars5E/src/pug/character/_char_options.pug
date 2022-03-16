@@ -1,0 +1,538 @@
+.page.options
+    include _char_header.pug
+    .body
+        .col.col1
+            .class_options
+                .row
+                    span(data-i18n='hit-die:-u') HIT DIE:
+                    select(name='attr_hitdietype')
+                        option(value='4') D4
+                        option(value='6') D6
+                        option(value='8') D8
+                        option(value='10') D10
+                        option(value='12') D12
+                .row
+                    span(data-i18n='carrying-capacity-mod:-u') CARRYING CAPACITY MODIFIER:
+                    input.num(type='text', name='attr_carrying_capacity_mod', placeholder='*2')
+                .row
+                    span(data-i18n='glob-atk-mod:-u') GLOBAL POWER ATTACK MODIFIER:
+                    input.num(type='text', name='attr_globalpowermod', placeholder='0', value='0')
+                .row
+                    span(data-i18n='power-caster-lvl:-u') POWER CASTER LEVEL:
+                    input.num(type='text', name='attr_caster_level')
+                .row
+                    span(data-i18n='power_dc_mod:-u') POWER SAVE DC MOD
+                    input.num(type='text', name='attr_power_dc_mod', placeholde='0', value='0')
+                .row
+                    span(data-i18n='power-icons:-u') POWER ICONS:
+                    select(name='attr_powericon_flag')
+                        option(value='all', data-i18n='show_all') Show All
+                        option(value='cp', data-i18n='cr_only') C&amp;R Only
+                        option(value='none', data-i18n='none') None
+                .row
+                    input(type='checkbox', name='attr_precognition_flag', value='1')
+                    span(data-i18n='precognition-u') PRECOGNITION (REROLL ONES)
+                .row
+                    input(type='checkbox', name='attr_tech_fighter', value='1')
+                    span(data-i18n='tech-fighter-u') TECH FIGHTER
+                .row
+                    input(type='checkbox', name='attr_tech_operative', value='1')
+                    span(data-i18n='tech-operative-u') TECH OPERATIVE
+                .row.title
+                    span(data-i18n='class-options-u') CLASS OPTIONS
+            .class_options
+                .row
+                    input(type='checkbox', name='attr_multiclass1_flag', value='1')
+                    span(data-i18n='2nd-class:-u') 2ND CLASS:
+                    select(name='attr_multiclass1', style='width: 64px;')
+                        option(value='berzerker', data-i18n='berzerker') Berzerker
+                        option(value='scholar', data-i18n='scholar') Scholar
+                        option(value='engineer', data-i18n='engineer') Engineer
+                        option(value='fighter', data-i18n='fighter') Fighter
+                        option(value='monk', data-i18n='monk') Monk
+                        option(value='guardian', data-i18n='guardian') Guardian
+                        option(value='scout', data-i18n='scout') Scout
+                        option(value='operative', data-i18n='operative') Operative
+                        option(value='sentinel', data-i18n='sentinel') Sentinel
+                        option(value='consular', data-i18n='consular') Consular
+                    span(data-i18n='lvl:-u') LEVEL:
+                    input(type='text', name='attr_multiclass1_lvl', value='1', style='width: 28px; text-align: center;')
+                    span.sheet-subclass(data-i18n='subclass:-u') SUBCLASS:
+                    input(type='text', name='attr_multiclass1_subclass')
+                .row
+                    input(type='checkbox', name='attr_multiclass2_flag', value='1')
+                    span(data-i18n='3rd-class:-u') 3RD CLASS:
+                    select(name='attr_multiclass2', style='width: 64px;')
+                        option(value='berzerker', data-i18n='berzerker') Berzerker
+                        option(value='scholar', data-i18n='scholar') Scholar
+                        option(value='engineer', data-i18n='engineer') Engineer
+                        option(value='fighter', data-i18n='fighter') Fighter
+                        option(value='monk', data-i18n='monk') Monk
+                        option(value='guardian', data-i18n='guardian') Guardian
+                        option(value='scout', data-i18n='scout') Scout
+                        option(value='operative', data-i18n='operative') Operative
+                        option(value='sentinel', data-i18n='sentinel') Sentinel
+                        option(value='consular', data-i18n='consular') Consular
+                    span(data-i18n='lvl:-u') LEVEL:
+                    input(type='text', name='attr_multiclass2_lvl', value='1', style='width: 28px; text-align: center;')
+                    span.sheet-subclass(data-i18n='subclass:-u') SUBCLASS:
+                    input(type='text', name='attr_multiclass2_subclass')
+                .row
+                    input(type='checkbox', name='attr_multiclass3_flag', value='1')
+                    span(data-i18n='4th-class:-u') 4TH CLASS:
+                    select(name='attr_multiclass3', style='width: 64px;')
+                        option(value='berzerker', data-i18n='berzerker') Berzerker
+                        option(value='scholar', data-i18n='scholar') Scholar
+                        option(value='engineer', data-i18n='engineer') Engineer
+                        option(value='fighter', data-i18n='fighter') Fighter
+                        option(value='monk', data-i18n='monk') Monk
+                        option(value='guardian', data-i18n='guardian') Guardian
+                        option(value='scout', data-i18n='scout') Scout
+                        option(value='operative', data-i18n='operative') Operative
+                        option(value='sentinel', data-i18n='sentinel') Sentinel
+                        option(value='consular', data-i18n='consular') Consular
+                    span(data-i18n='lvl:-u') LEVEL:
+                    input(type='text', name='attr_multiclass3_lvl', value='1', style='width: 28px; text-align: center;')
+                    span.sheet-subclass(data-i18n='subclass:-u') SUBCLASS:
+                    input(type='text', name='attr_multiclass3_subclass')
+                .row.title
+                    span(data-i18n='mutliclass-opts-u') MULTICLASS OPTIONS
+            .class_options
+                .row
+                    input(type='checkbox', name='attr_custom_class', value='1')
+                    span(data-i18n='use-cust-class-u') USE CUSTOM CLASS
+                .row
+                    span(data-i18n='class-name:-u') CLASS NAME:
+                    input(type='text', name='attr_cust_classname')
+                .row
+                    span(data-i18n='hit-die:-u') HIT DIE:
+                    select(name='attr_cust_hitdietype')
+                        option(value='4') D4
+                        option(value='6') D6
+                        option(value='8') D8
+                        option(value='10') D10
+                        option(value='12') D12
+                .row
+                    span(data-i18n='powercasting-ability:-u') POWERCASTING ABILITY:
+                    select(name='attr_cust_powercasting_ability')
+                        option(value='0*', data-i18n='none-u') NONE
+                        option(value='@{strength_mod}+', data-i18n='strength-u') STRENGTH
+                        option(value='@{dexterity_mod}+', data-i18n='dexterity-u') DEXTERITY
+                        option(value='@{constitution_mod}+', data-i18n='constitution-u') CONSTITUTION
+                        option(value='@{intelligence_mod}+', data-i18n='intelligence-u') INTELLIGENCE
+                        option(value='@{wisdom_mod}+', data-i18n='wisdom-u') WISDOM
+                        option(value='@{charisma_mod}+', data-i18n='charisma-u') CHARISMA
+                .row
+                    span(data-i18n='power-slots:-u') POWER SLOTS:
+                    select(name='attr_cust_powerslots')
+                        option(value='none', data-i18n='none-u') NONE
+                        option(value='full', data-i18n='power-full-u') FULL (Engineer, Druid, Consular)
+                        option(value='half', data-i18n='power-half-u') HALF (Guardian, Scout)
+                        option(value='third', data-i18n='power-third-u') THIRD (Tech Fighter/Operative)
+                .row
+                    span(data-i18n='saves-u') SAVES
+                .row
+                    input(type='checkbox', name='attr_cust_strength_save_prof', value='(@{pb})')
+                    span(data-i18n='strength') Strength
+                .row
+                    input(type='checkbox', name='attr_cust_dexterity_save_prof', value='(@{pb})')
+                    span(data-i18n='dexterity') Dexterity
+                .row
+                    input(type='checkbox', name='attr_cust_constitution_save_prof', value='(@{pb})')
+                    span(data-i18n='constitution') Constitution
+                .row
+                    input(type='checkbox', name='attr_cust_intelligence_save_prof', value='(@{pb})')
+                    span(data-i18n='intelligence') Intelligence
+                .row
+                    input(type='checkbox', name='attr_cust_wisdom_save_prof', value='(@{pb})')
+                    span(data-i18n='wisdom') Wisdom
+                .row
+                    input(type='checkbox', name='attr_cust_charisma_save_prof', value='(@{pb})')
+                    span(data-i18n='charisma') Charisma
+                .row.title
+                    span(data-i18n='cust-class-opts') CUSTOM CLASS OPTIONS
+        .col.col2
+            .attribute_options(style='width: 234px;')
+                .row.skill
+                    span(data-i18n='strength-u') STRENGTH
+                    span +
+                    input.num(type='text', name='attr_strength_bonus', value='0', placeholder='0', title='@{strength_bonus}')
+                .row.skill
+                    span(data-i18n='dexterity-u') DEXTERITY
+                    span +
+                    input.num(type='text', name='attr_dexterity_bonus', value='0', placeholder='0', title='@{dexterity_bonus}')
+                .row.skill
+                    span(data-i18n='constitution-u') CONSTITUTION
+                    span +
+                    input.num(type='text', name='attr_constitution_bonus', value='0', placeholder='0', title='@{constitution_bonus}')
+                .row.skill
+                    span(data-i18n='intelligence-u') INTELLIGENCE
+                    span +
+                    input.num(type='text', name='attr_intelligence_bonus', value='0', placeholder='0', title='@{intelligence_bonus}')
+                .row.skill
+                    span(data-i18n='wisdom-u') WISDOM
+                    span +
+                    input.num(type='text', name='attr_wisdom_bonus', value='0', placeholder='0', title='@{wisdom_bonus}')
+                .row.skill
+                    span(data-i18n='charisma-u') CHARISMA
+                    span +
+                    input.num(type='text', name='attr_charisma_bonus', value='0', placeholder='0', title='@{charisma_bonus}')
+                .row
+                    span(data-i18n='initiative-mod:-u') INITIATIVE MODIFIER:
+                    input.num(type='text', name='attr_initmod', placeholder='0', value='0')
+                .row
+                    span(data-i18n='initiative-style:-u') INITIATIVE STYLE:
+                    select(name='attr_initiative_style')
+                        option(value='@{d20}', selected='selected', data-i18n='norm') Normal
+                        option(value='{@{d20},@{d20}}kh1', data-i18n='adv') Advantage
+                        option(value='{@{d20},@{d20}}kl1', data-i18n='disadv') Disadvantage
+                        // <option value="?{Advantage?|Normal Roll,&#64;&#123;d20&#125;|Advantage,&#123;&#64;&#123;d20&#125;&#44;&#64;&#123;d20&#125;&#125;kh1|Disadvantage,&#123;&#64;&#123;d20&#125;&#44;&#64;&#123;d20&#125;&#125;kl1}" data-i18n="query-roll-adv">Query Advantage</option>
+                        // Pajellen was here
+                .row
+                    input(type='checkbox', name='attr_init_tiebreaker', value='@{dexterity}/100')
+                    span(data-i18n='add-dex-tiebreaker-u') ADD DEX TIEBREAKER TO INITIATIVE
+                .row
+                    span(data-i18n='glob-ac-mod:-u') GLOBAL ARMOR CLASS MODIFIER:
+                    input.num(type='text', name='attr_globalacmod', placeholder='0', value='0')
+                .row
+                    span(data-i18n='armor-class-tracking:-u') ARMOR CLASS TRACKING:
+                    select(name='attr_custom_ac_flag')
+                        option(value='0', selected='selected', data-i18n='automatic') Automatic
+                        option(value='1', data-i18n='custom') Custom
+                        option(value='2', data-i18n='off') Off
+                input.toggleflag(type='hidden', name='attr_custom_ac_flag')
+                .row.hidden
+                    span(data-i18n='custom_ac:-u') CUSTOM AC:
+                    input.num(type='text', name='attr_custom_ac_base', placeholder='10', value='10')
+                    span +
+                    select(name='attr_custom_ac_part1')
+                        option(value='none', selected='selected', data-i18n='none-u') NONE
+                        option(value='Strength', data-i18n='str-u') STR
+                        option(value='Dexterity', data-i18n='dex-u') DEX
+                        option(value='Constitution', data-i18n='con-u') CON
+                        option(value='Intelligence', data-i18n='int-u') INT
+                        option(value='Wisdom', data-i18n='wis-u') WIS
+                        option(value='Charisma', data-i18n='cha-u') CHA
+                    span +
+                    select(name='attr_custom_ac_part2')
+                        option(value='none', selected='selected', data-i18n='none-u') NONE
+                        option(value='Strength', data-i18n='str-u') STR
+                        option(value='Dexterity', data-i18n='dex-u') DEX
+                        option(value='Constitution', data-i18n='con-u') CON
+                        option(value='Intelligence', data-i18n='int-u') INT
+                        option(value='Wisdom', data-i18n='wis-u') WIS
+                        option(value='Charisma', data-i18n='cha-u') CHA
+                .row
+                    span(data-i18n='hpmods:-u') HP MODIFIERS:
+                fieldset.repeating_hpmod
+                    div(style='padding-left: 15px;')
+                        span(data-i18n='source:-u') SOURCE:
+                        input(type='text', name='attr_source')
+                        span(data-i18n='mod:-u') MOD:
+                        input.num(type='text', name='attr_mod')
+                .row.title
+                    span(data-i18n='attribute-opts-u') ATTRIBUTE OPTIONS
+            .save_options(style='width: 234px;')
+                .row.skill
+                    span(data-i18n='strength-save-u') Strength Save
+                    span +
+                    input.num(type='text', name='attr_strength_save_mod', value='0', placeholder='0', title='@{strength_save_mod}')
+                .row.skill
+                    span(data-i18n='dexterity-save-u') Dexterity Save
+                    span +
+                    input.num(type='text', name='attr_dexterity_save_mod', value='0', placeholder='0', title='@{dexterity_save_mod}')
+                .row.skill
+                    span(data-i18n='constitution-save-u') Constitution Save
+                    span +
+                    input.num(type='text', name='attr_constitution_save_mod', value='0', placeholder='0', title='@{constitution_save_mod}')
+                .row.skill
+                    span(data-i18n='intelligence-save-u') Intelligence Save
+                    span +
+                    input.num(type='text', name='attr_intelligence_save_mod', value='0', placeholder='0', title='@{intelligence_save_mod}')
+                .row.skill
+                    span(data-i18n='wisdom-save-u') Wisdom Save
+                    span +
+                    input.num(type='text', name='attr_wisdom_save_mod', value='0', placeholder='0', title='@{wisdom_save_mod}')
+                .row.skill
+                    span(data-i18n='charisma-save-u') Charisma Save
+                    span +
+                    input.num(type='text', name='attr_charisma_save_mod', value='0', placeholder='0', title='@{charisma_save_mod}')
+                .row
+                    span(data-i18n='death-save-mod:-u') DEATH SAVE MODIFIER:
+                    input.num(type='text', name='attr_death_save_mod', placeholder='0', value='0')
+                .row
+                    span(data-i18n='glob-saving-mod:-u') GLOBAL SAVING THROW MODIFIER:
+                    input.num(type='text', name='attr_globalsavemod', placeholder='0', value='0')
+                .row.title
+                    span(data-i18n='save-opts-u') SAVE OPTIONS
+            .skill_options(style='width: 234px;')
+                div(data-i18n-list='skills-list')
+                    .row.skill(data-i18n-list-item='acrobatics')
+                        select(name='attr_acrobatics_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='acrobatics-core')
+                            | Acrobatics
+                            span (Dex)
+                        span +
+                        input.num(type='text', name='attr_acrobatics_flat', value='0', placeholder='0', title='@{acrobatics_flat}')
+                    .row.skill(data-i18n-list-item='animal_handling')
+                        select(name='attr_animal_handling_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='animal_handling-core')
+                            | Animal Handling 
+                            span (Wis)
+                        span +
+                        input.num(type='text', name='attr_animal_handling_flat', value='0', placeholder='0', title='@{animal_handling_flat}')
+                    .row.skill(data-i18n-list-item='technology')
+                        select(name='attr_technology_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='technology-core')
+                            | Technology 
+                            span (Int)
+                        span +
+                        input.num(type='text', name='attr_technology_flat', value='0', placeholder='0', title='@{technology_flat}')
+                    .row.skill(data-i18n-list-item='athletics')
+                        select(name='attr_athletics_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='athletics-core')
+                            | Athletics 
+                            span (Str)
+                        span +
+                        input.num(type='text', name='attr_athletics_flat', value='0', placeholder='0', title='@{athletics_flat}')
+                    .row.skill(data-i18n-list-item='deception')
+                        select(name='attr_deception_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='deception-core')
+                            | Deception 
+                            span (Cha)
+                        span +
+                        input.num(type='text', name='attr_deception_flat', value='0', placeholder='0', title='@{deception_flat}')
+                    .row.skill(data-i18n-list-item='lore')
+                        select(name='attr_lore_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='lore-core')
+                            | Lore 
+                            span (Int)
+                        span +
+                        input.num(type='text', name='attr_lore_flat', value='0', placeholder='0', title='@{lore_flat}')
+                    .row.skill(data-i18n-list-item='insight')
+                        select(name='attr_insight_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='insight-core')
+                            | Insight 
+                            span (Wis)
+                        span +
+                        input.num(type='text', name='attr_insight_flat', value='0', placeholder='0', title='@{insight_flat}')
+                    .row.skill(data-i18n-list-item='intimidation')
+                        select(name='attr_intimidation_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='intimidation-core')
+                            | Intimidation 
+                            span (Cha)
+                        span +
+                        input.num(type='text', name='attr_intimidation_flat', value='0', placeholder='0', title='@{intimidation_flat}')
+                    .row.skill(data-i18n-list-item='investigation')
+                        select(name='attr_investigation_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='investigation-core')
+                            | Investigation 
+                            span (Int)
+                        span +
+                        input.num(type='text', name='attr_investigation_flat', value='0', placeholder='0', title='@{investigation_flat}')
+                    .row.skill(data-i18n-list-item='medicine')
+                        select(name='attr_medicine_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='medicine-core')
+                            | Medicine 
+                            span (Wis)
+                        span +
+                        input.num(type='text', name='attr_medicine_flat', value='0', placeholder='0', title='@{medicine_flat}')
+                    .row.skill(data-i18n-list-item='nature')
+                        select(name='attr_nature_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='nature-core')
+                            | Nature 
+                            span (Int)
+                        span +
+                        input.num(type='text', name='attr_nature_flat', value='0', placeholder='0', title='@{nature_flat}')
+                    .row.skill(data-i18n-list-item='perception')
+                        select(name='attr_perception_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='perception-core')
+                            | Perception 
+                            span (Wis)
+                        span +
+                        input.num(type='text', name='attr_perception_flat', value='0', placeholder='0', title='@{perception_flat}')
+                    .row.skill(data-i18n-list-item='performance')
+                        select(name='attr_performance_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='performance-core')
+                            | Performance 
+                            span (Cha)
+                        span +
+                        input.num(type='text', name='attr_performance_flat', value='0', placeholder='0', title='@{performance_flat}')
+                    .row.skill(data-i18n-list-item='persuasion')
+                        select(name='attr_persuasion_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='persuasion-core')
+                            | Persuasion 
+                            span (Cha)
+                        span +
+                        input.num(type='text', name='attr_persuasion_flat', value='0', placeholder='0', title='@{persuasion_flat}')
+                    .row.skill(data-i18n-list-item='piloting')
+                        select(name='attr_piloting_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='piloting-core')
+                            | Piloting 
+                            span (Int)
+                        span +
+                        input.num(type='text', name='attr_piloting_flat', value='0', placeholder='0', title='@{piloting_flat}')
+                    .row.skill(data-i18n-list-item='sleight_of_hand')
+                        select(name='attr_sleight_of_hand_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='sleight_of_hand-core')
+                            | Sleight of Hand 
+                            span (Dex)
+                        span +
+                        input.num(type='text', name='attr_sleight_of_hand_flat', value='0', placeholder='0', title='@{sleight_of_hand_flat}')
+                    .row.skill(data-i18n-list-item='stealth')
+                        select(name='attr_stealth_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='stealth-core')
+                            | Stealth 
+                            span (Dex)
+                        span +
+                        input.num(type='text', name='attr_stealth_flat', value='0', placeholder='0', title='@{stealth_flat}')
+                    .row.skill(data-i18n-list-item='survival')
+                        select(name='attr_survival_type')
+                            option(value='1', selected='selected', data-i18n='normal') Normal
+                            option(value='2', data-i18n='expirtise') Expertise
+                        span(data-i18n='survival-core')
+                            | Survival 
+                            span (Wis)
+                        span +
+                        input.num(type='text', name='attr_survival_flat', value='0', placeholder='0', title='@{survival_flat}')
+                .row(style='margin-top:10px;')
+                    input(type='checkbox', name='attr_jack_of_all_trades', value='@{jack}')
+                    span(data-i18n='jack-of-all-u') JACK OF ALL TRADES
+                .row
+                    span(data-i18n='pass-perc-mod:-u') PASSIVE PERCEPTION MODIFIER:
+                    input.num(type='text', name='attr_passiveperceptionmod', placeholder='0', value='0')
+                .row.title
+                    span(data-i18n='skill-opts-u') SKILL OPTIONS
+        .col.col3
+            .general_options
+                .version
+                    span(data-i18n='version') v
+                    input(type='text', name='attr_version')
+                .row
+                    span SHEET TYPE:
+                    select(name='attr_npc')
+                        option(value='0') PC
+                        option(value='1') NPC
+                        option(value='2') Ship
+                .row
+                    span(data-i18n='roll-queries:-u') ROLL QUERIES:
+                    select(name='attr_rtype')
+                        option(value='{{always=1}} {{r2=[[@{d20}', data-i18n='always-roll-adv') Always Roll Advantage
+                        option(value='@{advantagetoggle}', data-i18n='toggle-roll-adv') Advantage Toggle
+                        option(value='{{query=1}} ?{Advantage?|Normal Roll,&#123&#123normal=1&#125&#125 &#123&#123r2=[[0d20|Advantage,&#123&#123advantage=1&#125&#125 &#123&#123r2=[[@{d20}|Disadvantage,&#123&#123disadvantage=1&#125&#125 &#123&#123r2=[[@{d20}}', data-i18n='query-roll-adv') Query Advantage
+                        option(value='{{normal=1}} {{r2=[[0d20', data-i18n='never-roll-adv') Never Roll Advantage
+                .row
+                    span(data-i18n='whisp-rolls-gm:-u') WHISPER ROLLS TO GM:
+                    select(name='attr_wtype')
+                        option(value='', data-i18n='never-whisper-roll') Never Whisper Rolls
+                        option(value='@{whispertoggle}', data-i18n='toggle-roll-whisper') Whisper Toggle
+                        option(value='?{Whisper?|Public Roll,|Whisper Roll,/w gm }', data-i18n='query-whisper-roll') Query Whisper
+                        option(value='/w gm ', data-i18n='always-whisper-roll') Always Whisper Rolls
+                .row
+                    span(data-i18n='auto-dmg-roll:-u') AUTO DAMAGE ROLL:
+                    select.dtype(name='attr_dtype')
+                        option(value='pick', data-i18n='never-roll-dmg') Don&apos;t Auto Roll Damage
+                        option(value='full', data-i18n='always-roll-dmg') Auto Roll Damage &amp; Crit
+                .row
+                    span(data-i18n='core-die-roll:-u') CORE DIE ROLL:
+                    input(type='text', name='attr_core_die', value='1d20', placeholder='1d20', title='@{core_die}')
+                .row
+                    span(data-i18n='prof-bonus:-u') PROFICIENCY BONUS:
+                    select.dtype(name='attr_pb_type')
+                        option(value='level', data-i18n='by-level') By Level (Default)
+                        option(value='die', data-i18n='prof-die') Proficency Die (DMG)
+                        option(value='custom', data-i18n='custom') Custom
+                    input(type='hidden', name='attr_pb_type')
+                    input.pb_custom(type='text', style='float:right;', name='attr_pb_custom', placeholder='2d10')
+                .row
+                    input(type='checkbox', name='attr_global_save_mod_flag', value='1')
+                    span(data-i18n='show-global-save-field-u') SHOW GLOBAL SAVE MODIFIER FIELD
+                .row
+                    input(type='checkbox', name='attr_global_skill_mod_flag', value='1')
+                    span(data-i18n='show-global-skill-field-u') SHOW GLOBAL SKILL MODIFIER FIELD
+                .row
+                    input(type='checkbox', name='attr_global_attack_mod_flag', value='1')
+                    span(data-i18n='show-global-attack-field-u') SHOW GLOBAL ATTACK MODIFIER FIELD
+                .row
+                    input(type='checkbox', name='attr_global_damage_mod_flag', value='1')
+                    span(data-i18n='show-global-damage-field-u') SHOW GLOBAL DAMAGE MODIFIER FIELD
+                .row
+                    span(data-i18n='add-char-to-templates:-u') ADD CHARACTER NAME TO TEMPLATES:
+                    select.dtype(name='attr_charname_output')
+                        option(value='{{charname=@{character_name}}}', data-i18n='on') On
+                        option(value='charname=@{character_name}', selected='selected', data-i18n='off') Off
+                .row
+                    span(data-i18n='level-calculations:-u') LEVEL CALCULATIONS:
+                    select.dtype(name='attr_level_calculations')
+                        option(value='on', selected='selected', data-i18n='on') On
+                        option(value='off', data-i18n='off') Off
+                .row
+                    span(data-i18n='encumbrance:-u') ENCUMBRANCE:
+                    select(name='attr_encumberance_setting')
+                        option(value='off', data-i18n='simple') Simple
+                        option(value='on', data-i18n='variant-phb') Variant (PHB p176)
+                        option(value='disabled', data-i18n='off') Off
+                .row
+                    span(data-i18n='inventory:-u') INVENTORY:
+                    select(name='attr_simpleinventory')
+                        option(value='complex', data-i18n='compendium-compatible') Compendium Compatible
+                        option(value='simple', data-i18n='simple') Simple
+                .row
+                    span(data-i18n='feats-traits-u') FEATURES AND TRAITS
+                    span :
+                    select(name='attr_simpletraits')
+                        option(value='complex', data-i18n='compendium-compatible') Compendium Compatible
+                        option(value='simple', data-i18n='simple') Simple
+                .row
+                    span(data-i18n='prof-langs-u') PROFICENCIES AND LANGUAGES
+                    span :
+                    select(name='attr_simpleproficencies')
+                        option(value='complex', data-i18n='compendium-compatible') Compendium Compatible
+                        option(value='simple', data-i18n='simple') Simple
+                .row
+                    span(data-i18n='ammo-tracking:-u') AMMO TRACKING:
+                    select(name='attr_ammotracking')
+                        option(value='on', data-i18n='on') On
+                        option(value='off', selected='selected', data-i18n='off') Off
+                    span(data-i18n-title='api-required-title', data-i18n='api-required-u', title='Try it now with easy one click API installation available with your Pro subscription.', style='color:#666; cursor:help;') (API REQUIRED)
+                .row
+                    span(data-i18n='exhaustion-setting-u') SHOW EXHAUSTION TRACKING:
+                    select(name='attr_exhaustion_toggle')
+                        option(value='1', data-i18n='on') On
+                        option(value='0', data-i18n='off', selected='selected') Off
+                .row.title
+                    span(data-i18n='general-opts-u') GENERAL OPTIONS

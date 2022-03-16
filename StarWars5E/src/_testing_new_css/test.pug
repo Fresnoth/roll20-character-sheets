@@ -1,0 +1,309 @@
+div
+    .d-flex.justify-space-around.flex-wrap.align-center.card 
+        header THIS IS A HEADER HERE
+    .d-flex.justify-space-around.row.nx-2
+        .col-sm-6.col-md-4.col
+            .pa-3.card
+                .d-flex.pb-2
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                .item-group
+                    .item-group-container
+                        .d-flex
+                            h2.pr-2 +2
+                            h3.flex-grow-1 Strength
+                        .d-flex.px-1.pb-1
+                            input.attrinput(type='text', name='attr_strength_base', title='@{strength}', value='10')
+                            .d-flex
+                                input.py1.pr1(type='checkbox', name='attr_strength_save_prof', title='@{strength_save_prof}')
+                                button(type='roll', name='roll_strength_save', value='@{wtype}&{template:simple} {{rname=^{strength-save-u}}} {{mod=@{strength_save_bonus}}} {{r1=[[@{d20}+@{strength_save_bonus}@{pbd_safe}]]}} @{rtype}+@{strength_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}')
+                                    h4.mr-1.text-center.attr-mod +3
+                                    h5 Saving Throw
+        .col-sm-6.col-md-4.col
+            .pa-3.card
+                .d-flex.pb-2
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                .item-group
+                    .item-group-container
+                        fieldset.repeating_abilities 
+                            .ability
+                                details
+                                    span(data-i18n='name:-u') NAME:
+                                    input(type='text', name='attr_atkname')
+                                    button(type='roll', name='roll_attack', value='@{rollbase}')
+                                    input(type='checkbox', name='attr_atkflag', value='{{attack=1}}', checked='checked')
+                                    .dflex
+                                        span(data-i18n='attack:-u') ATTACK:
+                                        select(name='attr_atkattr_base')
+                                            option(value='@{strength_mod}', selected='selected', data-i18n='str-u') STR
+                                            option(value='@{dexterity_mod}', data-i18n='dex-u') DEX
+                                            option(value='@{constitution_mod}', data-i18n='con-u') CON
+                                            option(value='@{intelligence_mod}', data-i18n='int-u') INT
+                                            option(value='@{wisdom_mod}', data-i18n='wis-u') WIS
+                                            option(value='@{charisma_mod}', data-i18n='cha-u') CHA
+                                            option(value='power', data-i18n='power-u') POWER
+                                            option(value='0') -
+                                        span +
+                                        input.num(type='text', name='attr_atkmod', placeholder='0')
+                                        span +
+                                        input(type='checkbox', name='attr_atkprofflag', value='(@{pb})', checked='checked', style='margin-left: 3px;')
+                                        span(data-i18n='proficient-u') PROFICIENT
+                                    summary
+                                        .d-flex.pb2
+                                            button.flex-grow-1(type='roll', name='roll_attack', value='@{rollbase}')
+                                                span.h4(name='attr_atkname')
+                                    button(type='roll', name='roll_attack', value='@{rollbase}')
+
+        .col-sm-6.col-md-4.col
+            .pa-3.card
+                .d-flex.pb-2
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                    button.flex-grow-1(type='action')
+                        span.pictos(style='font-size: 10px;') *
+                .item-group
+                    .item-group-container
+                        .attacks(style='position: relative;')
+                            .top
+                                span.label(style='width: 95px;', data-i18n='name-u') NAME
+                                span.label(style='width: 35px;', data-i18n='atk-u') ATK
+                                span.label(style='width: 65px;', data-i18n='dmg-type-u') DAMAGE/TYPE
+                            fieldset.repeating_attack
+                                .attack
+                                    input.options-flag(type='checkbox', name='attr_options-flag', checked='checked')
+                                    span y
+                                    .options
+                                        .row
+                                            span(data-i18n='name:-u') NAME:
+                                            input(type='text', name='attr_atkname')
+                                        .row
+                                            input(type='checkbox', name='attr_atkflag', value='{{attack=1}}', checked='checked')
+                                            span(data-i18n='attack:-u') ATTACK:
+                                            select(name='attr_atkattr_base')
+                                                option(value='@{strength_mod}', selected='selected', data-i18n='str-u') STR
+                                                option(value='@{dexterity_mod}', data-i18n='dex-u') DEX
+                                                option(value='@{constitution_mod}', data-i18n='con-u') CON
+                                                option(value='@{intelligence_mod}', data-i18n='int-u') INT
+                                                option(value='@{wisdom_mod}', data-i18n='wis-u') WIS
+                                                option(value='@{charisma_mod}', data-i18n='cha-u') CHA
+                                                option(value='power', data-i18n='power-u') POWER
+                                                option(value='0') -
+                                            span +
+                                            input.num(type='text', name='attr_atkmod', placeholder='0')
+                                            span +
+                                            input(type='checkbox', name='attr_atkprofflag', value='(@{pb})', checked='checked', style='margin-left: 3px;')
+                                            span(data-i18n='proficient-u') PROFICIENT
+                                        .row
+                                            span(style='margin-left: 17px;', data-i18n='range:-u') RANGE:
+                                            input(type='text', name='attr_atkrange', placeholder='Self (60-foot cone)', style='width: 170px;', data-i18n-placeholder='range-place')
+                                        .row
+                                            span(style='margin-left: 17px;', data-i18n='power-bonus:-u') POWER BONUS:
+                                            input.num(type='text', name='attr_atkpower', placeholder='0')
+                                            span(data-i18n='crit-range-u') CRIT RANGE:
+                                            input.num(type='text', name='attr_atkcritrange', value='20', placeholder='20')
+                                        .row
+                                            input(type='checkbox', name='attr_dmgflag', value='{{damage=1}} {{dmg1flag=1}}', checked='checked')
+                                            span(data-i18n='damage:-u') DAMAGE:
+                                            input(type='text', name='attr_dmgbase', placeholder='1d6', style='width: 50px;')
+                                            span +
+                                            select(name='attr_dmgattr')
+                                                option(value='@{strength_mod}', selected='selected', data-i18n='str-u') STR
+                                                option(value='@{dexterity_mod}', data-i18n='dex-u') DEX
+                                                option(value='@{constitution_mod}', data-i18n='con-u') CON
+                                                option(value='@{intelligence_mod}', data-i18n='int-u') INT
+                                                option(value='@{wisdom_mod}', data-i18n='wis-u') WIS
+                                                option(value='@{charisma_mod}', data-i18n='cha-u') CHA
+                                                option(value='power', data-i18n='power-u') POWER
+                                                option(value='0') -
+                                            span +
+                                            input.num(type='text', name='attr_dmgmod', placeholder='0')
+                                        .row
+                                            span(style='margin-left: 17px;', data-i18n='type:-u') TYPE:
+                                            input(type='text', name='attr_dmgtype', placeholder='Slashing', style='width: 50px;', data-i18n-placeholder='dmg-type-place')
+                                            span(data-i18n='crit:-u') CRIT:
+                                            input(type='text', name='attr_dmgcustcrit', placeholder='1d6', style='width: 80px;')
+                                        .row
+                                            input(type='checkbox', name='attr_dmg2flag', value='{{damage=1}} {{dmg2flag=1}}')
+                                            span(data-i18n='damage2:-u') DAMAGE2:
+                                            input(type='text', name='attr_dmg2base', placeholder='1d6', style='width: 50px;')
+                                            span +
+                                            select(name='attr_dmg2attr')
+                                                option(value='@{strength_mod}', data-i18n='str-u') STR
+                                                option(value='@{dexterity_mod}', data-i18n='dex-u') DEX
+                                                option(value='@{constitution_mod}', data-i18n='con-u') CON
+                                                option(value='@{intelligence_mod}', data-i18n='int-u') INT
+                                                option(value='@{wisdom_mod}', data-i18n='wis-u') WIS
+                                                option(value='@{charisma_mod}', data-i18n='cha-u') CHA
+                                                option(value='power', data-i18n='power-u') POWER
+                                                option(value='0', selected='selected') -
+                                            span +
+                                            input.num(type='text', name='attr_dmg2mod', placeholder='0')
+                                        .row
+                                            span(style='margin-left: 17px;', data-i18n='type:-u') TYPE:
+                                            input(type='text', name='attr_dmg2type', placeholder='Slashing', style='width: 50px;', data-i18n-placeholder='dmg-type-place')
+                                            span(data-i18n='crit:-u') CRIT:
+                                            input(type='text', name='attr_dmg2custcrit', placeholder='1d6', style='width: 80px;')
+                                        .row
+                                            input(type='checkbox', name='attr_saveflag', value='{{save=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][SAVE]]]}}')
+                                            span(data-i18n='saving-throw:-u') SAVING THROW:
+                                            select(name='attr_saveattr')
+                                                option(value='Strength', selected='selected', data-i18n='str-u') STR
+                                                option(value='Dexterity', data-i18n='dex-u') DEX
+                                                option(value='Constitution', data-i18n='con-u') CON
+                                                option(value='Intelligence', data-i18n='int-u') INT
+                                                option(value='Wisdom', data-i18n='wis-u') WIS
+                                                option(value='Charisma', data-i18n='cha-u') CHA
+                                            span(data-i18n='vs-dc:-u') VS DC:
+                                            select(name='attr_savedc')
+                                                option(value='(@{power_save_dc})', selected='selected', data-i18n='power-u') POWER
+                                                option(value='(@{strength_mod}+8+@{power_dc_mod}+@{pb})', data-i18n='str-u') STR
+                                                option(value='(@{dexterity_mod}+8+@{power_dc_mod}+@{pb})', data-i18n='dex-u') DEX
+                                                option(value='(@{constitution_mod}+8+@{power_dc_mod}+@{pb})', data-i18n='con-u') CON
+                                                option(value='(@{intelligence_mod}+8+@{power_dc_mod}+@{pb})', data-i18n='int-u') INT
+                                                option(value='(@{wisdom_mod}+8+@{power_dc_mod}+@{pb})', data-i18n='wis-u') WIS
+                                                option(value='(@{charisma_mod}+8+@{power_dc_mod}+@{pb})', data-i18n='cha-u') CHA
+                                                option(value='(@{saveflat})', data-i18n='flat-u') FLAT
+                                            input.flatflag(type='hidden', name='attr_savedc')
+                                            input.num.flat(type='text', name='attr_saveflat', placeholder='10', value='10')
+                                        .row
+                                            span(data-i18n='save-effect:-u') SAVE EFFECT:
+                                            input(type='text', name='attr_saveeffect', placeholder='half damage', style='width: 160px;', data-i18n-placeholder='save-effect-place')
+                                        .row.ammo
+                                            span(data-i18n='ammunition:-u') AMMUNITION:
+                                            input(type='text', name='attr_ammo', placeholder='Arrows', style='width: 160px;', data-i18n-placeholder='ammunition-place')
+                                        .row
+                                            span(data-i18n='description:-u') DESCRIPTION:
+                                            textarea(name='attr_atk_desc', placeholder='Up to 2 creatures within 5 feet', data-i18n-placeholder='description-place')
+                                    .display
+                                        button(type='roll', name='roll_attack', value='@{rollbase}')
+                                            span(name='attr_atkname', style='width: 85px;')
+                                        input(type='text', name='attr_atkbonus', style='width: 40px; text-align: center;', value='')
+                                        input(type='text', name='attr_atkdmgtype', style='width: 90px;', value='')
+                            input(type='hidden', name='attr_rollbase')
+                            input(type='hidden', name='attr_rollbase_dmg')
+                            input(type='hidden', name='attr_rollbase_crit')
+                            input(type='hidden', name='attr_hldmg')
+                            input(type='hidden', name='attr_powerlevel')
+                            input(type='hidden', name='attr_itemid')
+                            input(type='hidden', name='attr_powerid')
+                            input(type='hidden', name='attr_power_innate')
+                            input(type='hidden', name='attr_versatile_alt')
+                            button(type='roll', name='roll_attack_dmg', style='display: none;', value='@{rollbase_dmg}')
+                            button(type='roll', name='roll_attack_crit', style='display: none;', value='@{rollbase_crit}')
+                            input.toggleflag(type='hidden', name='attr_global_attack_mod_flag')
+
+
+
+
+//.d-flex.p-2
+        .attributes-container(style='margin-top: 10px;')
+            .attr-container
+                button(type='roll', name='roll_strength', value='@{wtype}&{template:simple} {{rname=^{strength-u}}} {{mod=@{strength_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{strength_mod}@{jack_attr}[STR]]]}} @{rtype}+@{strength_mod}@{jack_attr}[STR]]]}} @{charname_output}', data-i18n='strength-u') STRENGTH
+                span.attr(name='attr_strength_mod', title='@{strength_mod}') 0
+                .attr-mod
+                    input.baseattr(type='text', name='attr_strength_base', title='@{strength}', value='10')
+                    input(type='hidden', name='attr_strength', value='10')
+                    input.attr-flag(type='hidden', name='attr_strength_flag', value='0')
+                    span.finalattr(name='attr_strength')
+            .attr-container
+                button(type='roll', name='roll_dexterity', value='@{wtype}&{template:simple} {{rname=^{dexterity-u}}} {{mod=@{dexterity_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{dexterity_mod}@{jack_attr}[DEX]]]}} @{rtype}+@{dexterity_mod}@{jack_attr}[DEX]]]}} @{charname_output}', data-i18n='dexterity-u') DEXTERITY
+                span.attr(name='attr_dexterity_mod', title='@{dexterity_mod}') 0
+                .attr-mod
+                    input.baseattr(type='text', name='attr_dexterity_base', title='@{dexterity}', value='10')
+                    input(type='hidden', name='attr_dexterity', value='10')     
+                    input.attr-flag(type='hidden', name='attr_dexterity_flag', value='0') 
+                    span.finalattr(name='attr_dexterity')
+            .attr-container
+                button(type='roll', name='roll_constitution', value='@{wtype}&{template:simple} {{rname=^{constitution-u}}} {{mod=@{constitution_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{constitution_mod}@{jack_attr}[CON]]]}} @{rtype}+@{constitution_mod}@{jack_attr}[CON]]]}} @{charname_output}', data-i18n='constitution-u') CONSTITUTION
+                span.attr(name='attr_constitution_mod', title='@{constitution_mod}') 0
+                .attr-mod
+                    input.baseattr(type='text', name='attr_constitution_base', title='@{constitution}', value='10')
+                    input(type='hidden', name='attr_constitution', value='10')
+                    input.attr-flag(type='hidden', name='attr_constitution_flag', value='0')
+                    span.finalattr(name='attr_constitution')
+            .attr-container
+                button(type='roll', name='roll_intelligence', value='@{wtype}&{template:simple} {{rname=^{intelligence-u}}} {{mod=@{intelligence_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{intelligence_mod}@{jack_attr}[INT]]]}} @{rtype}+@{intelligence_mod}@{jack_attr}[INT]]]}} @{charname_output}', data-i18n='intelligence-u') INTELLIGENCE
+                span.attr(name='attr_intelligence_mod', title='@{intelligence_mod}') 0
+                .attr-mod
+                    input.baseattr(type='text', name='attr_intelligence_base', title='@{intelligence}', value='10')
+                    input(type='hidden', name='attr_intelligence', value='10')
+                    input.attr-flag(type='hidden', name='attr_intelligence_flag', value='0')
+                    span.finalattr(name='attr_intelligence')
+            .attr-container
+                button(type='roll', name='roll_wisdom', value='@{wtype}&{template:simple} {{rname=^{wisdom-u}}} {{mod=@{wisdom_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{wisdom_mod}@{jack_attr}[WIS]]]}} @{rtype}+@{wisdom_mod}@{jack_attr}[WIS]]]}} @{charname_output}', data-i18n='wisdom-u') WISDOM
+                span.attr(name='attr_wisdom_mod', title='@{wisdom_mod}') 0
+                .attr-mod
+                    input.baseattr(type='text', name='attr_wisdom_base', title='@{wisdom}', value='10')
+                    input(type='hidden', name='attr_wisdom', value='10')
+                    input.attr-flag(type='hidden', name='attr_wisdom_flag', value='0')
+                    span.finalattr(name='attr_wisdom')
+            .attr-container
+                button(type='roll', name='roll_charisma', value='@{wtype}&{template:simple} {{rname=^{charisma-u}}} {{mod=@{charisma_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{charisma_mod}@{jack_attr}[CHA]]]}} @{rtype}+@{charisma_mod}@{jack_attr}[CHA]]]}} @{charname_output}', data-i18n='charisma-u') CHARISMA
+                span.attr(name='attr_charisma_mod', title='@{charisma_mod}') 0
+                .attr-mod
+                    input.baseattr(type='text', name='attr_charisma_base', title='@{charisma}', value='10')
+                    input(type='hidden', name='attr_charisma', value='10')
+                    input.attr-flag(type='hidden', name='attr_charisma_flag', value='0')
+                    span.finalattr(name='attr_charisma')
+            .skills-saves-container
+                .insp-prof-container
+                    .value
+                        input(type='checkbox', name='attr_inspiration')
+                        span
+                    .label
+                        span(data-i18n='inspiration-u') INSPIRATION
+                    .insp-prof-container
+                    .value
+                        span(name='attr_pb', title='@{pb}')
+                    .label
+                        span(data-i18n='prof-bonus-u') PROFICIENCY BONUS
+                    .saving-throw-container
+                        .saving-throw
+                            input(type='checkbox', name='attr_strength_save_prof', title='@{strength_save_prof}', value='(@{pb})')
+                            span(name='attr_strength_save_bonus', title='@{strength_save_bonus}') 0
+                            button(type='roll', name='roll_strength_save', value='@{wtype}&{template:simple} {{rname=^{strength-save-u}}} {{mod=@{strength_save_bonus}}} {{r1=[[@{d20}+@{strength_save_bonus}@{pbd_safe}]]}} @{rtype}+@{strength_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}', data-i18n='strength') Strength
+                        .saving-throw
+                            input(type='checkbox', name='attr_dexterity_save_prof', title='@{dexterity_save_prof}', value='(@{pb})')
+                            span(name='attr_dexterity_save_bonus', title='@{dexterity_save_bonus}') 0
+                            button(type='roll', name='roll_dexterity_save', value='@{wtype}&{template:simple} {{rname=^{dexterity-save-u}}} {{mod=@{dexterity_save_bonus}}} {{r1=[[@{d20}+@{dexterity_save_bonus}@{pbd_safe}]]}} @{rtype}+@{dexterity_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}', data-i18n='dexterity') Dexterity
+                        .saving-throw
+                            input(type='checkbox', name='attr_constitution_save_prof', title='@{constitution_save_prof}', value='(@{pb})')
+                            span(name='attr_constitution_save_bonus', title='@{constitution_save_bonus}') 0
+                            button(type='roll', name='roll_constitution_save', value='@{wtype}&{template:simple} {{rname=^{constitution-save-u}}} {{mod=@{constitution_save_bonus}}} {{r1=[[@{d20}+@{constitution_save_bonus}@{pbd_safe}]]}} @{rtype}+@{constitution_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}', data-i18n='constitution') Constitution
+                        .saving-throw
+                            input(type='checkbox', name='attr_intelligence_save_prof', title='@{intelligence_save_prof}', value='(@{pb})')
+                            span(name='attr_intelligence_save_bonus', title='@{intelligence_save_bonus}') 0
+                            button(type='roll', name='roll_intelligence_save', value='@{wtype}&{template:simple} {{rname=^{intelligence-save-u}}} {{mod=@{intelligence_save_bonus}}} {{r1=[[@{d20}+@{intelligence_save_bonus}@{pbd_safe}]]}} @{rtype}+@{intelligence_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}', data-i18n='intelligence') Intelligence
+                        .saving-throw
+                            input(type='checkbox', name='attr_wisdom_save_prof', title='@{wisdom_save_prof}', value='(@{pb})')
+                            span(name='attr_wisdom_save_bonus', title='@{wisdom_save_bonus}') 0
+                            button(type='roll', name='roll_wisdom_save', value='@{wtype}&{template:simple} {{rname=^{wisdom-save-u}}} {{mod=@{wisdom_save_bonus}}} {{r1=[[@{d20}+@{wisdom_save_bonus}@{pbd_safe}]]}} @{rtype}+@{wisdom_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}', data-i18n='wisdom') Wisdom
+                        .saving-throw
+                            input(type='checkbox', name='attr_charisma_save_prof', title='@{charisma_save_prof}', value='(@{pb})')
+                            span(name='attr_charisma_save_bonus', title='@{charisma_save_bonus}') 0
+                            button(type='roll', name='roll_charisma_save', value='@{wtype}&{template:simple} {{rname=^{charisma-save-u}}} {{mod=@{charisma_save_bonus}}} {{r1=[[@{d20}+@{charisma_save_bonus}@{pbd_safe}]]}} @{rtype}+@{charisma_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}', data-i18n='charisma') Charisma
+                        input.toggleflag(type='hidden', name='attr_global_save_mod_flag')
+                    .hidden.textarea.globalattack
+                        span.label(data-i18n='global-save-u') GLOBAL SAVE MODIFIER
+                        fieldset.repeating_savemod
+                        .global-mod
+                            input.options-flag(type='checkbox', name='attr_options-flag', checked='checked', style='top: -15px;')
+                            span y
+                            input.active-flag(type='checkbox', name='attr_global_save_active_flag', value='1')
+                            .options
+                            textarea(type='textarea', name='attr_global_save_rollstring', placeholder='1d4[BLESS]', style='width: 125px;')
+                            .display
+                            span.title(name='attr_global_save_rollstring')
+                    .label
+                        span(data-i18n='saving-throws-u') SAVING THROWS     

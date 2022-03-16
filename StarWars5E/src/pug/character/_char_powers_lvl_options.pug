@@ -1,0 +1,109 @@
+input.options-flag(type='checkbox', name='attr_options-flag', checked='checked')
+span y
+.options
+    .row
+        span(data-i18n='name:-u') NAME:
+        input(type='text', name='attr_powername')
+    .row
+        span(data-i18n='school:-u') SCHOOL:
+        select(name='attr_powerschool')
+            option(value='force', data-i18n='force') Force
+            option(value='tech', data-i18n='tech') Tech
+    .row
+        span(data-i18n='casting-time:-u') CASTING TIME:
+        input(type='text', name='attr_powercastingtime')
+    .row
+        span(data-i18n='range:-u') RANGE:
+        input(type='text', name='attr_powerrange')
+    .row
+        span(data-i18n='target:-u') TARGET:
+        input(type='text', name='attr_powertarget')
+    .row
+        input(type='checkbox', name='attr_powerconcentration', value='{{concentration=1}}')
+        span(data-i18n='concentration-u') CONCENTRATION
+    .row
+        span(data-i18n='duration:-u') DURATION:
+        input(type='text', name='attr_powerduration')
+    .row
+        span(data-i18n='power-ability-u') POWERCASTING ABILITY
+        select(name='attr_power_ability')
+            option(value='0*', data-i18n='none-u') NONE
+            option(value='power', data-i18n='power-u') POWER
+            option(value='@{strength_mod}+', data-i18n='strength-u') STRENGTH
+            option(value='@{dexterity_mod}+', data-i18n='dexterity-u') DEXTERITY
+            option(value='@{constitution_mod}+', data-i18n='constitution-u') CONSTITUTION
+            option(value='@{intelligence_mod}+', data-i18n='intelligence-u') INTELLIGENCE
+            option(value='@{wisdom_mod}+', data-i18n='wisdom-u') WISDOM
+            option(value='@{charisma_mod}+', data-i18n='charisma-u') CHARISMA
+    .row
+        span(data-i18n='innate:-u') INNATE:
+        input(type='text', name='attr_innate', placeholder='1/day', value='')
+    .row
+        span(data-i18n='output:-u') OUTPUT:
+        select(name='attr_poweroutput')
+            option(value='POWERCARD', data-i18n='powercard-u') POWERCARD
+            option(value='ATTACK', data-i18n='attack-u') ATTACK
+    input.powerattackinfoflag(type='hidden', name='attr_poweroutput')
+    .powerattackinfo
+        .row
+            span(data-i18n='power-atk:-u') POWER ATTACK:
+            select(name='attr_powerattack')
+                option(value='None', data-i18n='none') None
+                option(value='Melee', data-i18n='melee') Melee
+                option(value='Ranged', data-i18n='ranged') Ranged
+        .row
+            span(data-i18n='damage:-u') DAMAGE:
+            input(type='text', name='attr_powerdamage', style='width: 50px;')
+            span(data-i18n='type:-u') TYPE:
+            input(type='text', name='attr_powerdamagetype', style='width: 103px;')
+        .row
+            span(data-i18n='damage2:-u') DAMAGE2:
+            input(type='text', name='attr_powerdamage2', style='width: 45px;')
+            span(data-i18n='type:-u') TYPE:
+            input(type='text', name='attr_powerdamagetype2', style='width: 103px;')
+        .row
+            span(data-i18n='healing:-u') HEALING:
+            input(type='text', name='attr_powerhealing', style='width: 45px;')
+        .row
+            input(type='checkbox', name='attr_powerdmgmod', value='Yes')
+            span(data-i18n='add-ability-mod-u') ADD ABILITY MOD TO DAMAGE OR HEALING
+        .row
+            span(data-i18n='saving-throw:-u') SAVING THROW:
+            select(name='attr_powersave')
+                option(value='', selected='selected', data-i18n='none-u') NONE
+                option(value='Strength', data-i18n='str-u') STR
+                option(value='Dexterity', data-i18n='dex-u') DEX
+                option(value='Constitution', data-i18n='con-u') CON
+                option(value='Intelligence', data-i18n='int-u') INT
+                option(value='Wisdom', data-i18n='wis-u') WIS
+                option(value='Charisma', data-i18n='cha-u') CHA
+            span(data-i18n='effect:-u') EFFECT:
+            input(type='text', name='attr_powersavesuccess', style='width: 78px;', placeholder='Half damage', data-i18n-placeholder='half-dmg-place')
+        .row
+            span(data-i18n='at-higher-lvl-dmg:-u') HIGHER LVL CAST DMG:
+            input(type='text', name='attr_powerhldie', placeholder='1', style='width: 15px; text-align: right;')
+            select(name='attr_powerhldietype')
+                option(value='', selected='selected', data-i18n='none-u') NONE
+                option(value='d4') d4
+                option(value='d6') d6
+                option(value='d8') d8
+                option(value='d10') d10
+                option(value='d12') d12
+                option(value='d20') d20
+            span +
+            input(type='text', name='attr_powerhlbonus', placeholder='0', style='width: 15px; text-align: center;')
+        .row
+            span(data-i18n='include_power_desc:-u') INCLUDE POWER DESCRIPTION IN ATTACK:
+            select(name='attr_includedesc')
+                option(value='off', selected='selected', data-i18n='off') Off
+                option(value='partial', data-i18n='partial') Partial
+                option(value='on', data-i18n='on') On
+    .row
+        span(data-i18n='description:-u') DESCRIPTION:
+    .row
+        textarea(name='attr_powerdescription')
+    .row
+        span(data-i18n='at-higher-lvl:-u') AT HIGHER LEVELS:
+    .row
+        textarea(name='attr_powerathigherlevels', style='height: 36px; min-height: 36px;')
+    input(type='hidden', name='attr_powerattackid')

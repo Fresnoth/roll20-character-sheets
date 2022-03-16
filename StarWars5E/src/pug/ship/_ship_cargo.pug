@@ -1,0 +1,123 @@
+.page.ship-cargo
+    include _ship_header.pug
+    .body
+        .col2-3
+            .equipment(style='display:inline-block')
+                .money
+                    .coin
+                        span.label(data-i18n='credit-piece-u') CR
+                        input(type='text', name='attr_cr', title='@{cr}')
+                input.inventoryflag(type='hidden', name='attr_simpleinventory', value='complex')
+                textarea.simple(name='attr_equipment')
+                .complex
+                    input.warningflag(type='hidden', name='attr_armorwarningflag')
+                    .warning
+                        span(data-i18n='warning-armor-sets-u')
+                            input(type='checkbox', name='attr_armorwarning', value='hide')
+                            | WARNING - MULTIPLE SETS OF ARMOR OR SHIELDS HAVE BEEN ADDED AND AC IS NOT CORRECTLY CALCULATED. UNEQUIP THE ARMOR PIECE FROM THE ITEM DETAILS.
+                    .header(style='height: auto;')
+                        span.pictos(style='width: 25px; font-size: 15px;') *
+                        span(style='width: 100px; text-align: left;', data-i18n='item-name-u') ITEM NAME
+                        span(style='width: 25px;')
+                            img(src='https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5th%20Edition%20OGL%20by%20Roll20/images/weight_lbs.png', style='width: 15px; margin-bottom: -3px;')
+                    fieldset.repeating_inventory
+                        input.equippedflag(type='hidden', name='attr_equipped')
+                        .item
+                            input.weight(type='text', name='attr_itemcount', value='1')
+                            input.name(type='text', name='attr_itemname')
+                            input.weight(type='text', name='attr_itemweight')
+                            input.inventorysubflag(type='checkbox', name='attr_inventorysubflag')
+                            span i
+                            .subitem
+                                input.equipped(type='checkbox', name='attr_equipped', value='1', checked='checked')
+                                span.equippedlabel(data-i18n='equipped-u') EQUIPPED
+                                input.equipped(type='checkbox', name='attr_useasresource', value='1')
+                                span.equippedlabel(data-i18n='use-as-resource-u') USE AS A RESOURCE
+                                input.equipped(type='checkbox', name='attr_hasattack', value='1')
+                                span.equippedlabel(data-i18n='has-attack-u') HAS AN ATTACK
+                                span.label(data-i18n='prop:-u') PROP:
+                                input.subfield(type='text', name='attr_itemproperties')
+                                span.label(data-i18n='mods:-u') MODS:
+                                input.subfield(type='text', name='attr_itemmodifiers')
+                                textarea.subtextarea(name='attr_itemcontent')
+                            input(type='hidden', name='attr_itemattackid')
+                            input(type='hidden', name='attr_itemresourceid')
+                    .weighttotal
+                        span.label(data-i18n='total-cargo-tons-u') TOTAL CARGO (TONS)
+                        input(type='text', name='attr_weighttotal', value='0')
+                span.label(style='margin-top: 0px; position: absolute; bottom: 0px;', data-i18n='cargo-u') CARGO
+            .equipment(style='display:inline-block')
+                .money
+                    .coin
+                        span.label(data-i18n='credit-piece-u') CR
+                        input(type='text', name='attr_hiddencr', title='@{hiddencr}')
+                input.inventoryflag(type='hidden', name='attr_simpleinventory', value='complex')
+                textarea.simple(name='attr_equipment')
+                .complex
+                    input.warningflag(type='hidden', name='attr_armorwarningflag')
+                    .warning
+                        span(data-i18n='warning-armor-sets-u')
+                            input(type='checkbox', name='attr_armorwarning', value='hide')
+                            | WARNING - MULTIPLE SETS OF ARMOR OR SHIELDS HAVE BEEN ADDED AND AC IS NOT CORRECTLY CALCULATED. UNEQUIP THE ARMOR PIECE FROM THE ITEM DETAILS.
+                    .header(style='height: auto;')
+                        span.pictos(style='width: 25px; font-size: 15px;') *
+                        span(style='width: 100px; text-align: left;', data-i18n='item-name-u') ITEM NAME
+                        span(style='width: 25px;')
+                            img(src='https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5th%20Edition%20OGL%20by%20Roll20/images/weight_lbs.png', style='width: 15px; margin-bottom: -3px;')
+                    fieldset.repeating_hiddeninventory
+                        input.equippedflag(type='hidden', name='attr_equipped')
+                        .item
+                            input.weight(type='text', name='attr_itemcount', value='1')
+                            input.name(type='text', name='attr_itemname')
+                            input.weight(type='text', name='attr_itemweight')
+                            input.inventorysubflag(type='checkbox', name='attr_inventorysubflag')
+                            span i
+                            .subitem
+                                input.equipped(type='checkbox', name='attr_equipped', value='1', checked='checked')
+                                span.equippedlabel(data-i18n='equipped-u') EQUIPPED
+                                input.equipped(type='checkbox', name='attr_useasresource', value='1')
+                                span.equippedlabel(data-i18n='use-as-resource-u') USE AS A RESOURCE
+                                input.equipped(type='checkbox', name='attr_hasattack', value='1')
+                                span.equippedlabel(data-i18n='has-attack-u') HAS AN ATTACK
+                                span.label(data-i18n='prop:-u') PROP:
+                                input.subfield(type='text', name='attr_itemproperties')
+                                span.label(data-i18n='mods:-u') MODS:
+                                input.subfield(type='text', name='attr_itemmodifiers')
+                                textarea.subtextarea(name='attr_itemcontent')
+                            input(type='hidden', name='attr_itemattackid')
+                            input(type='hidden', name='attr_itemresourceid')
+                    .weighttotal
+                        span.label(data-i18n='total-hidden-cargo-tons-u') TOTAL HIDDEN CARGO (TONS)
+                        input(type='text', name='attr_hiddenweighttotal', value='0')
+                span.label(style='margin-top: 0px; position: absolute; bottom: 0px;', data-i18n='hidden-cargo-u') HIDDEN CARGO
+            .textbox
+                span.label(data-i18n='ship-notes-u') SHIP NOTES AND MISC
+                textarea(name='attr_ship_notes', style='min-height: 400px; height: 400px;')
+        .col
+            .hp
+                .top
+                    span(data-i18n='ship-fuel-max') Ship Fuel Capacity
+                    input(type='text', name='attr_ship_fuel_max', title='@{ship_fuel_max}')
+                input(type='number', name='attr_ship_fuel_current', title='@{ship_fuel_current}')
+                span.label(data-i18n='ship-fuel-current-label') CURRENT FUEL (UNITS)
+            .hp
+                input(type='number', name='attr_ship_fuel_cost', title='@{ship_fuel_cost}')
+                span.label(data-i18n='ship-fuel-cost-label') FUEL COST (CR)
+            .hp
+                .top
+                    span(data-i18n='ship-food-max') Ship Food Capacity
+                    input(type='text', name='attr_ship_food_max', title='@{food_max}')
+                input(type='number', name='attr_ship_food_current', title='@{ship_food_current}')
+                span.label(data-i18n='ship-food-current-label') CURRENT FOOD (PORTIONS)
+            .hp
+                .top
+                    span(data-i18n='ship-reg-cargo-max') Regular Cargo Capacity
+                    input(type='text', name='attr_ship_reg_cargo_max', title='@{ship_reg_cargo_max}')
+                input(type='number', name='attr_weighttotal', title='@{weighttotal}')
+                span.label(data-i18n='total-cargo-tons-u') CURRENT CARGO (TONS)
+            .hp
+                .top
+                    span(data-i18n='ship-hidden-cargo-max') Hidden Cargo Capacity
+                    input(type='text', name='attr_ship_hidden_cargo_max', title='@{ship_hidden_cargo_max}')
+                input(type='number', name='attr_hiddenweighttotal', title='@{hiddenweighttotal}')
+                span.label(data-i18n='total-hidden-cargo-tons-u') HIDDEN CARGO (TONS)

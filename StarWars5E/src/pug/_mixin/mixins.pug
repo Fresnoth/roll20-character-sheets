@@ -1,0 +1,15 @@
+mixin ship_options_skill_item(nameOfSkill, nameOfAttr)
+    .row.skill(data-i18n-list-item=`ship_${nameOfSkill}`)
+        select(name=`attr_ship_${nameOfSkill}_type`)
+            option(value='1', selected='selected', data-i18n='proficiently') Proficiently
+            option(value='2', data-i18n='expertly') Expertly
+        span(data-i18n=`ship_${nameOfSkill}-core`)
+            | #{nameOfSkill} 
+            span (#{nameOfAttr})
+        span +
+        input.num(type='text', name=`attr_ship_${nameOfSkill}_flat`, value='0', placeholder='0', title=`@{ship_${nameOfSkill}_flat}`)
+
+- var ship_skills = {'boost': 'Str', 'ram': 'Str', 'hide': 'Dex', 'maneuvering': 'Dex', 'patch': 'Con', 'regulation': 'Con', 'astrogation': 'Int', 'data': 'Int', 'probe': 'Int', 'scan': 'Wis', 'impress': 'Cha', 'menace': 'Cha', 'swindle': 'Cha'}
+
+for att, skill in ship_skills
+    +ship_options_skill_item(skill, att)

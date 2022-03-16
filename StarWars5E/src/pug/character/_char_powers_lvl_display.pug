@@ -1,0 +1,10 @@
+.display
+    input(type='hidden', name='attr_rollcontent', value='@{wtype}&{template:power} {{level=@{powerschool} @{powerlevel}}}  {{name=@{powername}}} {{castingtime=@{powercastingtime}}} {{range=@{powerrange}}} {{target=@{powertarget}}}  {{duration=@{powerduration}}} {{description=@{powerdescription}}} {{athigherlevels=@{powerathigherlevels}}}  {{innate=@{innate}}} @{powerconcentration} @{charname_output}')
+    input.sheet-prep-box(type='checkbox', name='attr_powerprepared', value='1')
+    span.prep
+    button.powercard(type='roll', name='roll_power', value='@{rollcontent}')
+        span.powername(name='attr_powername')
+        input.innate_flag(type='hidden', name='attr_innate', value='')
+    span.innate(name='attr_innate')
+    input.powerconcentration(type='hidden', name='attr_powerconcentration', value='0')
+    span.powerconcentration(data-i18n='power-concentration') C

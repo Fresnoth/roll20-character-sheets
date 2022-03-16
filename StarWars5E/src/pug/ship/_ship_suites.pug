@@ -1,0 +1,62 @@
+.page.ship-suites
+    include _ship_header.pug
+    .body
+        .col2-3
+            .textbox.traits(style='min-height: 84px; width:480px; display:inline-block;')
+                input.inventoryflag(type='hidden', name='attr_simpletraits', value='complex')
+                textarea.sheet-simple(name='attr_features_and_traits', style='min-height: 260px; height: 260px;')
+                .complex(style='width: 475px;')
+                    fieldset.repeating_suites
+                        .trait
+                            button.output(type='roll', name='roll_output', value='@{wtype}&{template:traits} @{charname_output} {{name=@{suite_name}}} {{source=@{suite_source}: @{suite_source_type}}} {{description=@{suite_description}}}') w
+                            input.options-flag(type='checkbox', name='attr_options-flag', checked='checked')
+                            span y
+                            input.display-flag(type='checkbox', name='attr_display_flag')
+                            .options
+                                .row
+                                    span(data-i18n='name:-u') NAME:
+                                    input(type='text', name='attr_suite_name', style='width: 120px;')
+                                .row
+                                    span(data-i18n='source:-u') SOURCE:
+                                    select(name='attr_suite_source')
+                                        option(selected='selected', data-i18n='base') Base
+                                        option(data-i18n='upgrade') Upgrade
+                                        option(data-i18n='other') Other
+                                .row
+                                    span(data-i18n='type:-u') TYPE:
+                                    input(type='text', name='attr_suite_source_type', style='width: 160px;', value='Suite System')
+                                .row
+                                    span(data-i18n='grade:-u') GRADE:
+                                    input(type='number', name='attr_suite_grade', style='width: 160px;', placeholder='0')
+                                .row
+                                    span(data-i18n='cost:-u') Cost:
+                                    input(type='number', name='attr_suite_mod_cost', style='width: 160px;', placeholder='0')
+                                .row
+                                    textarea(name='attr_suite_description', style='min-height: 200px; height: 200px;')
+                            .display(style='margin-bottom: 2px;')
+                                span.title(name='attr_suite_name')
+                                span.subheader
+                                    | Grade: 
+                                    span(name='attr_suite_grade') : 
+                                    | 
+                                    span(name='attr_suite_source')
+                                    span : 
+                                    span(name='attr_suite_source_type')
+                                    | : 
+                                    span(name='attr_suite_mod_cost') 
+                                    | cr
+                                span.desc(name='attr_suite_description')
+                span.label(data-i18n='modifications-suites-u', style='margin-top: 0px; position: absolute; bottom: 0px;') SUITE MODIFICATIONS
+        .col
+            .hp
+                .top
+                    span(data-i18n='ship-mod-max') Modification Capacity
+                    input(type='text', name='attr_ship_mod_max', title='@{ship_mod_max}')
+                input(type='number', name='attr_ship_mod_current', title='@{ship_mod_current}')
+                span.label(data-i18n='ship-mod-current-u') TOTAL MODIFICATIONS
+            .hp
+                .top
+                    span(data-i18n='ship-suites-max') Maximum Suites
+                    input(type='text', name='attr_ship_suites_max', title='@{ship_suites_max}')
+                input(type='number', name='attr_ship_suites_current', title='@{ship_suites_current}')
+                span.label(data-i18n='ship-suites-current-u') TOTAL SUITES

@@ -1,0 +1,16 @@
+.container.ship
+    input.tab-button.ship-core(type='radio', name='attr_ship_tab', value='ship-core', checked='checked')
+    span(data-i18n='core-u') CORE
+    input.tab-button.ship-cargo(type='radio', name='attr_ship_tab', value='ship-cargo')
+    span(data-i18n='ship-cargo-tab-u') CARGO
+    input.tab-button.ship-mods(type='radio', name='attr_ship_tab', value='ship-mods')
+    span(data-i18n='ship-mods-tab-u') MODS
+    input.tab-button.ship-suites(type='radio', name='attr_ship_tab', value='ship-suites')
+    span(data-i18n='ship-suites-tab-u') SUITES
+    input.tab-button.options(type='radio', name='attr_ship_tab', value='options')
+    span(style='font-family: pictos') y
+    include _ship_core.pug
+    include _ship_cargo.pug
+    include _ship_mods.pug
+    include _ship_suites.pug
+    include _ship_options.pug
