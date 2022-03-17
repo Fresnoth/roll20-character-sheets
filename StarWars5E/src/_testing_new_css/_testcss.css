@@ -33,7 +33,7 @@ a:hover{
     color:#f57777
 }
 
-h1,h2,h3,h4{
+h1,h2,h3,h4,.h1,.h2,.h3,.h4{
     font-family:Russo One,sans-serif;
     color:#c40f0f;
     text-transform:uppercase;
@@ -44,29 +44,21 @@ h1{
     font-size:.7cm
 }
 
-h2{
+h2,.h2{
     font-size:.5cm
 }
 
-h3{
+h3,.h3{
     font-size:.4cm;
     border-bottom:2px solid #0d99cc;
     clear:both
 }
 
-h4{
+h4,.h4{
     font-size:.35cm
 }
 
-.h4{
-    font-family:Russo One,sans-serif;
-    color:#c40f0f;
-    text-transform:uppercase;
-    font-weight:700;
-    font-size:.35cm;
-}
-
-h5{
+h5,.h5{
     font-size:.4cm
 }
 
@@ -87,15 +79,23 @@ h5{
 .charsheet .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
+    /*z-index: -2;*/
    /* background-color: gainsboro;*/
 }
 
 .attrinput {
-    border-radius: 15px 15px;
-    border: 2px solid #c40f0f;
-    width: 25px;
-    height: 25px; 
+    /*border-radius: 15px 15px;*/
+    border: 4px solid #c40f0f;
+    width: 30px;
+    height: 30px;
+    border-style:double;
+    font-weight: 700;
 }
+
+.inset{
+  border-style:inset;
+}
+
 
 button[type=roll]:hover{
     background-color:#c9d6db;
@@ -116,6 +116,17 @@ button[type=roll]{
     display:inline-flex;
 }
 
+/*
+.charsheet .to_hit{
+  min-width:28px
+}
+.charsheet .weapon_damage{
+  min-width:140px
+}
+*/
+
+
+
 /* container for the repeating abilities sectioin */
 .charsheet .abilities-container{
     overflow-y: auto;
@@ -130,6 +141,15 @@ button[type=roll]{
     grid-template-rows: auto;
     padding: 0px;
     margin: 0;
+}
+
+.repcontrol_move {
+  z-index: 100 !important;
+  position: absolute !important;
+}
+
+.repcontrol_del {
+  z-index: 100 !important;
 }
 
 /* abilities repeating section input*/
@@ -156,6 +176,7 @@ button[type=roll]{
     padding-left: 2.3rem;
     position: relative;
     cursor: pointer;
+    /*z-index: -1;*/ /* we have to do this because otherwise the delete and move buttons don't appear on top of the element when "modify" is clicked on the repeating secton */
 }
 
 /* Alters the appearance of the ability details*/
@@ -206,7 +227,13 @@ button[type=roll]{
     border-radius: 5px;
 }
 
+.inset{
+  border-style:inset;
+}
 
+/*!
+ * This is code that handles popup boxes taken from the CSE Wiki on Roll20
+ */
 
 
 

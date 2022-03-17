@@ -5,26 +5,33 @@ div
         .col-sm-6.col-md-4.col
             .pa-3.card
                 .d-flex.pb-2
+                    button.flex-grow-1(type='action' name='act_left_abilities_skills')
+                        span.pictos.three(style='font-size: 15px;') c
+                    button.flex-grow-1(type='action' name='act_left_weapon_attacks')
+                        span.pictos(style='font-size: 15px;') j
                     button.flex-grow-1(type='action')
-                        span.pictos(style='font-size: 10px;') *
-                    button.flex-grow-1(type='action')
-                        span.pictos(style='font-size: 10px;') *
-                    button.flex-grow-1(type='action')
-                        span.pictos(style='font-size: 10px;') *
-                .item-group
+                        span.pictos(style='font-size: 15px;') *
+                .item-group-abilities-skills
                     .item-group-container
                         .d-flex
-                            h2.pr-2 +2
-                            h3.flex-grow-1 Strength
+                            button.flex-grow-1(type='roll', name='roll_strength', value='@{wtype}&{template:simple} {{rname=^{strength-u}}} {{mod=@{strength_mod}@{jack_bonus}}} {{r1=[[@{d20}+@{strength_mod}@{jack_attr}[STR]]]}} @{rtype}+@{strength_mod}@{jack_attr}[STR]]]}} @{charname_output}')
+                                span.h2.pr-2 +2
+                                span.h3.flex-grow-1.text-start(data-i18n='strength-u')
                         .d-flex.px-1.pb-1
-                            input.attrinput(type='text', name='attr_strength_base', title='@{strength}', value='10')
-                            .d-flex
-                                input.py1.pr1(type='checkbox', name='attr_strength_save_prof', title='@{strength_save_prof}')
-                                button(type='roll', name='roll_strength_save', value='@{wtype}&{template:simple} {{rname=^{strength-save-u}}} {{mod=@{strength_save_bonus}}} {{r1=[[@{d20}+@{strength_save_bonus}@{pbd_safe}]]}} @{rtype}+@{strength_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}')
-                                    h4.mr-1.text-center.attr-mod +3
-                                    h5 Saving Throw
+                            input.attrinput.pr-2(type='text', name='attr_strength_base', title='@{strength}', value='10')
+                            div
+                                .d-flex
+                                    input.py-1.pr-1(type='checkbox', name='attr_strength_save_prof', title='@{strength_save_prof}')
+                                    button(type='roll', name='roll_strength_save', value='@{wtype}&{template:simple} {{rname=^{strength-save-u}}} {{mod=@{strength_save_bonus}}} {{r1=[[@{d20}+@{strength_save_bonus}@{pbd_safe}]]}} @{rtype}+@{strength_save_bonus}@{pbd_safe}]]}} {{global=@{global_save_mod}}} @{charname_output}')
+                                        span.h4.mr-1.text-center.attr-mod +3
+                                        span.h4 Saving Throw
+                                .d-flex
+                                    input.py-1.pr-1(type='checkbox', name='attr_acrobatics_prof', title='@{acrobatics_prof}', value='(@{pb}*@{acrobatics_type})')
+                                    button(type='roll', name='roll_acrobatics', value='@{wtype}&{template:simple} {{rname=^{acrobatics-u}}} {{mod=@{acrobatics_bonus}}} {{r1=[[@{d20}+@{acrobatics_bonus}@{pbd_safe}]]}} @{rtype}+@{acrobatics_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output}')
+                                        span.h5.mr-1.text-center.attr-mod +1
+                                        span.h5(data-i18n='acrobatics-core')
         .col-sm-6.col-md-4.col
-            .pa-3.card
+            .pa-3.card.center-card
                 .d-flex.pb-2
                     button.flex-grow-1(type='action')
                         span.pictos(style='font-size: 10px;') *
@@ -32,7 +39,7 @@ div
                         span.pictos(style='font-size: 10px;') *
                     button.flex-grow-1(type='action')
                         span.pictos(style='font-size: 10px;') *
-                .item-group
+                .item-group-weapon-attacks
                     .item-group-container
                         fieldset.repeating_abilities 
                             .ability
@@ -58,9 +65,14 @@ div
                                         input(type='checkbox', name='attr_atkprofflag', value='(@{pb})', checked='checked', style='margin-left: 3px;')
                                         span(data-i18n='proficient-u') PROFICIENT
                                     summary
-                                        .d-flex.pb2
-                                            button.flex-grow-1(type='roll', name='roll_attack', value='@{rollbase}')
-                                                span.h4(name='attr_atkname')
+                                        .d-flex.flex-column
+                                            .d-flex
+                                                button.weapon-attack.flex-grow-1(type='roll', name='roll_attack', value='@{rollbase}')
+                                                    span.h4.text-start.flex-grow-1(name='attr_atkname')
+                                                    span.flex.grow-1.pr-2 +4
+                                                    span.flex.grow-1.text-end 1d6+2 Energy
+                                            .d-flex
+                                                span.flex-grow-1 this is a big description that may take a bit to aosdifhoanice ajnociena oinc naioecn aeinc aonicd aiosndfpo
                                     button(type='roll', name='roll_attack', value='@{rollbase}')
 
         .col-sm-6.col-md-4.col
@@ -204,6 +216,15 @@ div
                             input.toggleflag(type='hidden', name='attr_global_attack_mod_flag')
 
 
+
+
+//
+                .skill(data-i18n-list-item='acrobatics')
+                  input(type='checkbox', name='attr_acrobatics_prof', title='@{acrobatics_prof}', value='(@{pb}*@{acrobatics_type})')
+                  span(name='attr_acrobatics_bonus', title='@{acrobatics_bonus}') 0
+                  button(type='roll', name='roll_acrobatics', value='@{wtype}&{template:simple} {{rname=^{acrobatics-u}}} {{mod=@{acrobatics_bonus}}} {{r1=[[@{d20}+@{acrobatics_bonus}@{pbd_safe}]]}} @{rtype}+@{acrobatics_bonus}@{pbd_safe}]]}} {{global=@{global_skill_mod}}} @{charname_output}', data-i18n='acrobatics-core')
+                    | Acrobatics 
+                    span (Dex)
 
 
 //.d-flex.p-2

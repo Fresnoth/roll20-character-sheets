@@ -1,5 +1,5 @@
 
-<div class="container npc">
+<div class="container npc" style="width: 390px;">
   <input class="npc_options-flag" type="checkbox" name="attr_npc_options-flag" checked="checked"/><span>y</span>
   <div class="npc_options">
     <div class="row title"><span data-i18n="npc-options-u">NPC OPTIONS   </span></div>
@@ -224,7 +224,7 @@
       <input type="checkbox" name="attr_init_tiebreaker" value="@{dexterity}/100"/><span data-i18n="add-dex-tiebreaker-u">ADD DEX TIEBREAKER TO INITIATIVE</span>
     </div>
   </div>
-  <div class="card">
+  <div class="display">
     <div class="row title red">
       <button type="roll" name="roll_npc_init" style="width: 100%;" value="@{wtype}&amp;{template:npc} @{npc_name_flag} {{rname=^{init}}} {{mod=[[[[@{initiative_bonus}]][DEX]]]}} {{r1=[[@{d20}+[[@{initiative_bonus}]][DEX] &amp;{tracker}]]}} {{normal=1}} {{type=Initiative}}"><span name="attr_npc_name">  </span></button>
     </div>
